@@ -30,6 +30,7 @@ body {
 }
 
 .item {
+  position: relative;
   width: 150px;
   height: 66px;
   border: 1px solid #eee;
@@ -40,6 +41,7 @@ body {
   color: #828282;
   text-align: center;
   cursor: grab;
+  z-index: 1;
 }
 
 .item:active {
@@ -47,8 +49,21 @@ body {
 }
 
 .placeholder {
+  position: relative;
   width: 150px;
   height: 66px;
+  background-color: #eee;
+  border-radius: 20px;
+  transition: scale 0.3;
+}
+
+.placeholder:before{
+  content: '+';
+  position: absolute;
+  font-size: 25px;
+  color: #209cff;
+  top: 25%;
+  left: 50%;
 }
 
 .start {
@@ -64,7 +79,9 @@ body {
 }
 
 .hold {
-  border: 5px solid #eee;
+  background: #e9f5ff;
+  border: 1px solid rgba(0,0,0,0.3);
+  box-shadow: 4px 4px 9px rgba(198, 198, 198, 0.36);
 }
 
 .hide {
@@ -72,5 +89,6 @@ body {
 }
 
 .hovered {
-  border-top: 2px solid #8ed7ed;
+  border: 1px solid #209cff;
+  transform: scale(1.1);
 }
