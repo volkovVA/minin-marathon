@@ -31,17 +31,26 @@ const getRandomNumber = (min, max) => {
   return Math.round(Math.random() * (max - min) + min)
 }
 
+const getRandomColor = (min = 0, max = 255) => {
+  const red = Math.round(Math.random() * (max - min) + min)
+  const green = Math.round(Math.random() * (max - min) + min)
+  const blue = Math.round(Math.random() * (max - min) + min)
+  return `${red}, ${green}, ${blue}`
+}
+
 const createRandomCircle = () => {
   const circle = document.createElement('div')
   const size = getRandomNumber(10, 60)
   const {width, height} = board.getBoundingClientRect()
   const x = getRandomNumber(0, width - size)
   const y = getRandomNumber(0, height - size)
+  const rgbColor = getRandomColor()
   circle.classList.add('circle')
   circle.style.width = `${size}px`
   circle.style.height = `${size}px`
   circle.style.top = `${y}px`
   circle.style.left = `${x}px`
+  circle.style.background = `rgb(${rgbColor})`
   board.append(circle)
 }
 
