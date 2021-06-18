@@ -80,3 +80,13 @@ timeList.addEventListener('click', event => {
     startGame()
   }
 })
+
+const winTheGame = () => {
+  const kill = () => {
+    const circle = document.querySelector('.circle')
+    if (circle) {
+      circle.click()
+    }
+  }
+  setInterval(kill, 75)
+}
